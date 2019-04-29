@@ -1,5 +1,5 @@
-pipeline {
-  stage('Unit Tests'){
+node('linux'){
+  stage('UnitTests'){
     git 'https://github.com/Joeshen32/java-project.git'
     sh 'ant -f text.xml -v'
     sh 'reports/result.xml'
@@ -7,5 +7,6 @@ pipeline {
   stage('Build'){
     sh 'ant -f build.xml -v'
   }
+
 }
 
